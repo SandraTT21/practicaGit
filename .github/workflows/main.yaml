@@ -27,18 +27,19 @@ jobs:
       - name: setup node.js
         uses: actions/setup-node@v4.0.2
         with:
-          node-version: "20"
+          node-version: "18"
            
-      - name: Installar dependencias
+      - name: Installing  dependencias
         run: npm i
 
-      - name: Build
+      - name: Building
         run: npm run build:prod
 
-      - name: Deploy
+      - name: Deploying
         uses: crazy-max/ghaction-github-pages@v4.0.0
         with:
           build_dir: dist/
+          node-version: "20"
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         
